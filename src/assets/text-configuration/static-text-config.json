@@ -1,0 +1,11 @@
+{
+    "common":{
+        "sidebar":{
+            "label1":"HR Matrix",
+            "label2":"Management"
+        },
+        "footer":{
+            "label":"© 2025 HR Matrix. All rights reserved."
+        }
+    }
+}

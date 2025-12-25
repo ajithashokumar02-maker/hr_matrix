@@ -1,0 +1,137 @@
+<div class="container-fluid mt-3">
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3">
+        <div>
+          <h1 class="fw-bold text-dark mb-1 fs-4">
+            Dashboard Overview
+          </h1>
+          <p class="text-muted mb-0">
+            Welcome back, Ajith. Here's what's happening today.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row g-3 mb-3">
+    <ng-container *ngFor="let item of cardList">
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div
+          class="card h-100 p-3 stat-card border-0 shadow-sm"
+          [style.border-bottom-color]="item.color"
+          style="border-bottom-width:3px;border-bottom-style:solid;"
+        >
+          <div class="d-flex align-items-center gap-3">
+            <div
+              class="stat-icon"
+              [style.color]="item.color"
+              [style.backgroundColor]="item.color + '20'"
+            >
+              <i [class]="item.icon"></i>
+            </div>
+            <div>
+              <div class="text-muted small" [title]="item.title">
+                {{ item.title }}
+              </div>
+              <div class="fw-bold fs-5">
+                {{ item.value }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="row g-3 mb-3">
+    <div class="col-12 col-lg-9">
+      <div class="card p-3 h-100 shadow-sm border-0">
+        <h5 class="fw-bold mb-3">Performance Analytics</h5>
+
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [yaxis]="chartOptions.yaxis"
+          [plotOptions]="chartOptions.plotOptions"
+          [legend]="chartOptions.legend"
+          [grid]="chartOptions.grid"
+          [colors]="chartOptions.colors"
+          [dataLabels]="chartOptions.dataLabels">
+        </apx-chart>
+      </div>
+    </div>
+    <div class="col-12 col-lg-3">
+      <div class="card p-3 h-100 shadow-sm border-0">
+        <h5 class="fw-bold mb-3">Recent Activity</h5>
+
+        <ng-container *ngFor="let item of recentActivityList">
+          <div class="d-flex align-items-center gap-3 mb-3 stat-card">
+            <div
+              class="stat-icon"
+              [style.color]="item.color"
+              [style.backgroundColor]="item.color + '20'"
+            >
+              <i [class]="item.icon"></i>
+            </div>
+            <div>
+              <div class="text-muted small" [title]="item.description">
+                {{ item.description }}
+              </div>
+              <div class="fw-bold small">
+                {{ item.time }}
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="card p-3 shadow-sm border-0">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="fw-bold mb-0">Employee Status</h5>
+          <a href="#" class="text-primary small">View All</a>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-bordered align-middle mb-0">
+            <thead class="table-light">
+              <tr class="text-muted small">
+                <th>Employee Name</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Join Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let emp of tableList">
+                <td class="d-flex align-items-center gap-2">
+                  <i class="bx bx-user-circle fs-4 text-secondary"></i>
+                  {{ emp.name }}
+                </td>
+                <td>{{ emp.department }}</td>
+                <td>
+                  <span
+                    class="badge"
+                    [ngClass]="{
+                      'bg-success': emp.status === 'Active',
+                      'bg-warning text-dark': emp.status === 'On Leave',
+                      'bg-info': emp.status === 'Remote',
+                      'bg-danger': emp.status === 'Resigned'
+                    }"
+                  >
+                    {{ emp.status }}
+                  </span>
+                </td>
+                <td>{{ emp.joinDate }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

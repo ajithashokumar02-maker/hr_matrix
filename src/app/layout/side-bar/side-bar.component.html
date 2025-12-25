@@ -1,0 +1,56 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidebar"
+    [mode]="isMobile ? 'over' : 'side'"
+    [opened]="sidenavOpen"
+    (closedStart)="closeSidenavOnMobile()">
+    <header class="sidebar-header">
+      <div class="image-section d-flex py-2">
+        <div>
+          <i class="bx bxs-user-pin logo-icon"></i>
+        </div>
+
+        <div class="d-flex flex-column px-2">
+          <div class="text-gray sidebar-text fw-bold">
+            {{ staticTextConfig?.common?.sidebar?.label1 }}
+          </div>
+          <div class="text-gray sidebar-text fw-bold">
+            {{ staticTextConfig?.common?.sidebar?.label2 }}
+          </div>
+        </div>
+      </div>
+    </header>
+    <mat-nav-list>
+      <ng-container *ngFor="let menu of sideNavBar">
+        <div class="menu-item">
+          <a
+            mat-list-item
+            [routerLink]="menu?.url"
+            routerLinkActive="active"
+            (click)="closeSidenavOnMobile()">
+
+            <i class="bx {{ menu?.icon }} menu-icon text-gray"></i>
+            <span class="sidebar-text text-gray mx-3 fw-bold">
+              {{ menu?.name }}
+            </span>
+          </a>
+        </div>
+      </ng-container>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header (toggleMenu)="toggleSidenav()"></app-header>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+
+    <div class="position-fixed bottom-0 w-100">
+      <app-footer></app-footer>
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

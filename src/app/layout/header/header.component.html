@@ -1,0 +1,86 @@
+<header
+  class="bg-white border-bottom px-3 px-md-4 d-flex align-items-center justify-content-between position-sticky top-0 shadow-sm"
+  style="height: 64px; z-index: 10;">
+  <div class="d-flex align-items-center gap-3">
+    <button mat-icon-button (click)="toggleMenu.emit()" class="text-secondary">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="d-none d-md-flex align-items-center bg-light rounded-pill px-3 py-1">
+      <mat-icon class="text-muted" style="font-size: 20px;">search</mat-icon>
+      <input
+        type="text"
+        placeholder="Search employees, jobs..."
+        class="form-control border-0 bg-transparent shadow-none ms-2"
+        style="width: 260px; font-size: 14px;">
+    </div>
+
+  </div>
+  <div class="d-flex align-items-center gap-2 gap-md-3">
+    <button mat-icon-button class="d-md-none text-secondary">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="text-secondary position-relative"
+      [matMenuTriggerFor]="notificationMenu">
+
+      <mat-icon
+        matBadge="4"
+        matBadgeColor="warn"
+        matBadgeSize="small">
+        notifications_none
+      </mat-icon>
+    </button>
+
+    <mat-menu #notificationMenu="matMenu" class="mt-2">
+      <button mat-menu-item>
+        <mat-icon class="text-primary">mail</mat-icon>
+        <span>New application received</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon class="text-warning">warning</mat-icon>
+        <span>Review pending approvals</span>
+      </button>
+    </mat-menu>
+    <button mat-icon-button class="d-none d-sm-inline-flex text-secondary">
+      <mat-icon>help_outline</mat-icon>
+    </button>
+    <div
+      class="ms-2 ps-3 border-start d-flex align-items-center cursor-pointer"
+      [matMenuTriggerFor]="userMenu">
+
+      <img
+        src="https://picsum.photos/100/100"
+        class="rounded-circle border"
+        width="32"
+        height="32"
+        alt="Avatar">
+
+      <span class="d-none d-md-inline ms-2 fw-medium text-dark">
+        Ajith
+      </span>
+
+      <mat-icon class="text-muted ms-1" style="font-size: 16px;">
+        arrow_drop_down
+      </mat-icon>
+    </div>
+
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+      <div class="border-top my-1"></div>
+      <button mat-menu-item>
+        <mat-icon class="text-danger">logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+
+  </div>
+</header>
+
