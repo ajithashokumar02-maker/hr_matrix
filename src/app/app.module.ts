@@ -13,7 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { NgApexchartsModule } from 'ng-apexcharts';
+// import { NgApexchartsModule } from 'ng-apexcharts';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -34,7 +34,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatIconModule,
     MatButtonModule,
-     NgApexchartsModule,
+    //  NgApexchartsModule,
     BrowserModule,
     CommonModule,
     AppRoutingModule,
