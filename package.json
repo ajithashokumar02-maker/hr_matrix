@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "vercel-build": "npm install --legacy-peer-deps && ng build --prod",
     "test": "ng test"
   },
   "private": true,
@@ -23,7 +24,6 @@
     "apexcharts": "^3.35.0",
     "bootstrap": "^5.3.8",
     "boxicons": "^2.1.4",
-    "ng-apexcharts": "^1.7.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
